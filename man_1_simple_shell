@@ -1,0 +1,122 @@
+.TH hsh 1 "Oct 28, 2021" "1.0" "hsh General Commands Manual"
+
+
+.SH NAME
+
+.B simple_shell - hsh
+- command line interpreter or shell
+
+
+.SH SYNOPSIS
+
+.B  ./hsh
+.I (no options yet)
+
+.SH DESCRIPTION
+
+simple_shell is a command line interpreter, also called shell, in the traditio of the first Unix shell written by Ken Thompson. This shell is minimum version of yet includes the basic functionality of a traditional Unix-like command lineinterface. simple_shell is desgined to run on the linux environment.
+
+.SH OVERVIEW
+
+Either reading from the terminal or files, simple_shell interprets and executescommands.
+
+.SH INVOCATION
+
+Simple_shell is complied with the GNU Compiler Collection, preferably with using "gcc" plus the below specified flags, as per this example (note the use of the * wildcard which means it should enable all related .c files to be compiled concurrently):
+P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+.P
+.RE
+simple_shell can be run in interactive mode i.e (-i) by entering the below command on the command line followd by "enter key." Note that the prompt ('$') willbe displayed and then interactive mode will be enabled so as to enter commands followed by "enter."
+.P
+.RS
+.B $ ./hsh
+.P
+.RE
+simple_shell can be run in non-interactive mode through the use of shell scripts. This can be done with the aid of piping ('|'):
+.P
+.RS
+.B echo 'pwd' | ./hsh
+
+.SH EXECUTABLES
+
+Example of executables:
+.IP
+.br
+.\&
+.RS
+\&$ echo "Example of executables"
+.br
+\&"Example of executables"
+.br
+\&$
+
+
+.SH BUILTINS
+
+The following builtin commands are supported:
+
+.IT
+.B env
+- prints the environment variables
+
+.B exit
+- exits the program
+
+.B setenv
+- sets the environment
+
+.B unsetenv
+- removes elements from the environment
+
+Example of builtin command:
+.IP
+.br
+.\&
+.RS
+\&$ env
+.br
+HOSTNAME=a6e175fc9ea2
+.br
+\&LANGUAGE=en_US:en
+.br
+\&PWD=/root/simple_shell
+.br
+\&TZ=America/Los_Angeles
+.br
+\&HOME=/root
+.br
+\&LANG=en_US.UTF-8
+.br
+\&LESSCLOSE=/usr/bin/lesspipe %s %s
+.br
+\&TERM=xterm
+.br
+\&LESSOPEN=| /usr/bin/lesspipe %s
+.br
+\&SHLVL=1
+.br
+\&LC_ALL=en_US.UTF-8
+.br
+\&PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.br
+\&OLDPWD=/root_=/usr/bin/printenv
+br.
+\&_=./hsh
+.br
+\&$
+
+.SH BUGS
+No known bugs at this writing (Oct 28, 2021).
+Please report any issues to the authors.
+
+
+.SH AUTHOR
+
+Akanbi Mubaraq <akanbi.ges201@gmail.com>
+
+Opeyemi Ogunbode <timiopebode@gmail.com>
+
+.SH SEE ALSO
+sh
