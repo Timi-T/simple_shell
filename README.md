@@ -1,0 +1,1 @@
+This repository consists of files for the simple shell project. The aim of the project is to create a simple shell that performs the function of  shell. Basically to get input from a user and interact with the system to perform a specific task or get an output which is then displayed on the standard output.
