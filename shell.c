@@ -53,5 +53,6 @@ int main(int ac, char **av, char **env)
 			continue;
 		}
 	}
+	free(input);
 	return (0);
 }
