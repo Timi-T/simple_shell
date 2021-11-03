@@ -26,6 +26,7 @@ int main(int ac, char **av, char **env)
 	dir_list *args_link;
 	char **environment1 = env;
 
+	input = NULL;
 	if (ac > 1)
 	{
 		write(2, "Usage: ", 7);
