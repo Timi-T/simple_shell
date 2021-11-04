@@ -34,7 +34,7 @@ void execute_command(char *arg, dir_list *command, char *input)
 		i++;
 	}
 	array[i] = NULL;
-	if (*arg != 'x' && *(arg + 1) != '\0')
+	if (*arg != 'x')
 	{
 		id = fork();
 		if (id != 0)
