@@ -93,7 +93,7 @@ dir_list *get_arg_link(char *input)
 {
 	char *arg, *in;
 	int strings, str = 1;
-	dir_list *head;
+	dir_list *head, *h;
 
 	in = input;
 	strings = get_strings(input);
@@ -101,14 +101,15 @@ dir_list *get_arg_link(char *input)
 	head = malloc(strlen(arg) + sizeof(dir_list));
 	head->dir = fix_string(arg);
 	head->next = NULL;
+	h = head;
 	while (str < strings)
 	{
-	arg = strtok(NULL, " ");
+		arg = strtok(NULL, " ");
 		arg = fix_string(arg);
-		head = add_node(head, arg);
+		h = add_node(head, arg);
 		str++;
 	}
-	return (head);
+	return (h);
 	free(head);
 }
 
