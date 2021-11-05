@@ -22,7 +22,7 @@ int main(int ac, char **av, char **env)
 {
 	char *input, *arg;
 	size_t len = 0;
-	int exit_switch, env_code;
+	int exit_switch, env_code, end_of_file;
 	dir_list *args_link;
 	char **environment1 = env;
 
@@ -36,23 +36,24 @@ int main(int ac, char **av, char **env)
 	}
 	while (1)
 	{
-		printf("#cisfun$ ");
-		getline(&input, &len, stdin);
-		input[strlen(input) - 1] = '\0';
-		env_code = check_env(input, environment1);
-		if (*input != '\0' && env_code == 0)
+		if ((end_of_file = getline(&input, &len, stdin)) != EOF)
 		{
-			exit_switch = exit_code(input);
-			if (exit_switch == 0)
-				break;
-			args_link = get_arg_link(input);
-			arg = get_dir(args_link, environment1);
-			execute_command(arg, args_link, input);
+			input[strlen(input) - 1] = '\0';
+			env_code = check_env(input, environment1);
+			if (*input != '\0' && env_code == 0)
+			{
+				exit_switch = exit_code(input);
+				if (exit_switch == 0)
+					break;
+				args_link = get_arg_link(input);
+				arg = get_dir(args_link, environment1);
+				execute_command(arg, args_link, input);
+			}
+			else
+				continue;
 		}
 		else
-		{
-			continue;
-		}
+			break;
 	}
 	free(input);
 	return (0);
