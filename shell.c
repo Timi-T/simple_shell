@@ -36,6 +36,8 @@ int main(int ac, char **av, char **env)
 	}
 	while (1)
 	{
+		if (isatty(STDIN_FILENO) == 1)
+			printf("#cisfun$ ");
 		if ((end_of_file = getline(&input, &len, stdin)) != EOF)
 		{
 			input[strlen(input) - 1] = '\0';
